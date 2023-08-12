@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
 
-function App() {
+function Square() {
+  const [value, setValue] = useState(null) //valuearmazena o valor e setValue é uma função que pode ser usada para alterar o valor
+
+  function handleClick() {
+    setValue('X')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <button className="square" 
+    onClick={handleClick}>
+      {value}</button>
+  )
+  
 }
 
-export default App;
+function Board() {
+  return (
+    <>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+
+    </>
+  )
+
+}
+
+export default Board;
